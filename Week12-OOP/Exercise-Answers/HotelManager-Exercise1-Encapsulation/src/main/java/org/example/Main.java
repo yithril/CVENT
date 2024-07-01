@@ -22,5 +22,9 @@ public class Main {
 
         System.out.println("Employee 2: ID: " + employee2.getEmployeeId() + ", Name: " + employee2.getName() + ", Department: " + employee2.getDepartment() + ", Pay Rate: $" + employee2.getPayRate() + ", Hours Worked: " + employee2.getHoursWorked());
         System.out.println("Regular Hours: " + employee2.getRegularHours() + ", Overtime Hours: " + employee2.getOvertimeHours() + ", Total Pay: $" + employee2.getTotalPay());
+
+        Calculator c = new Calculator();
+
+        c.add(10, 2);
     }
 }

@@ -15,6 +15,18 @@ public class Employee {
         this.hoursWorked = hoursWorked;
     }
 
+    //overload the constructor
+    //parameterless constructor
+    public Employee(){
+        this.name = "Not Set";
+    }
+
+    public Employee(int employeeId, String name, String department){
+        this.employeeId = employeeId;
+        this.name = name;
+        this.department = department;
+    }
+
     public int getEmployeeId() {
         return employeeId;
     }
