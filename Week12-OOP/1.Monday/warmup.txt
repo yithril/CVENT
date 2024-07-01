@@ -1,0 +1,54 @@
+Possible Data Structures:
+
+    ArrayList
+    LinkedList
+    HashMap
+    TreeMap
+    HashSet
+    TreeSet
+    Stack
+    Queue
+    Graph
+    Tree
+
+Situations:
+
+    Phone Contacts
+        Situation: You have a list of phone contacts. Each contact has a name and a phone number. You need to be able to quickly look up a contact by their name.
+        Your Answer:
+
+    Daily Tasks
+        Situation: You need to keep track of daily tasks. Each task needs to be completed in the order they were added.
+        Your Answer:
+
+    Library Books
+        Situation: You are organizing a library. Each book has a unique ID, and you need to check out books by their ID.
+        Your Answer:
+
+    Browser History
+        Situation: You need to implement a browser history feature, where you can go back to the previous page.
+        Your Answer:
+
+    Music Playlist
+        Situation: You are designing a music player where songs are played in the order they are added. Sometimes, you need to add songs to the beginning of the playlist.
+        Your Answer:
+
+    GPS Navigation
+        Situation: You need to find the shortest path between two locations on a map.
+        Your Answer:
+
+    Tournament Bracket
+        Situation: You are organizing a knockout tournament where each match eliminates a participant until only one champion remains.
+        Your Answer:
+
+    Student Grades
+        Situation: You need to store students’ grades in a way that allows you to calculate the average grade quickly.
+        Your Answer:
+
+    Inventory Management
+        Situation: You are managing an inventory where items are frequently added and removed. You need to keep track of the quantity of each item.
+        Your Answer:
+
+    Social Network Friends
+        Situation: You need to store a list of friends for each user in a social network.
+        Your Answer:
