@@ -9,7 +9,7 @@ public class House extends Asset{
     public House(String description, String dateAcquired, double originalCost, String address, int condition, int squareFootage, int lotSize) {
         super(description, dateAcquired, originalCost);
         this.address = address;
-        this.condition = condition;
+        setCondition(condition);
         this.squareFootage = squareFootage;
         this.lotSize = lotSize;
     }
@@ -27,6 +27,9 @@ public class House extends Asset{
     }
 
     public void setCondition(int condition) {
+        if(condition < 1 || condition > 4){
+            throw new IllegalArgumentException("Condition must be between 1-4 inclusive.");
+        }
         this.condition = condition;
     }
 
