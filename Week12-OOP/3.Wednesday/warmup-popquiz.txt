@@ -1,0 +1,19 @@
+POP QUIZ
+
+Define an interface in Java. What are its key characteristics?
+
+How does an abstract class differ from an interface in Java? When might you use one over the other!
+
+Explain the concept of polymorphism in Java.
+
+What is method overriding, and why is it useful in Java?
+
+List and briefly describe the four pillars of Object-Oriented Programming (OOP).
+
+What is inheritance in Java, and how does it promote code reuse?
+
+Provide an example of a class that implements an interface.
+
+What is the difference between method overloading and method overriding?
+
+Explain the use of the super keyword in Java. Provide an example.

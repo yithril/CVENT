@@ -14,7 +14,7 @@ public class OrderManager {
 
         // These lines will not compile
         //processor.authenticate();
-        // processor.processTransaction();
-        // processor.generateReceipt();
+        //processor.processTransaction();
+        //processor.generateReceipt();
     }
 }

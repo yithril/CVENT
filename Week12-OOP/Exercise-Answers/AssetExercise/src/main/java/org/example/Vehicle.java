@@ -26,6 +26,7 @@ public class Vehicle extends Asset {
 
     public void setYear(int year) {
         this.year = year;
+        Object obj = null;
     }
 
     public int getOdometer() {
