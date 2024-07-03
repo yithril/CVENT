@@ -2,7 +2,7 @@ POP QUIZ
 
 Define an interface in Java. What are its key characteristics?
 
-How does an abstract class differ from an interface in Java? When might you use one over the other!
+How does an abstract class differ from an interface in Java? When might you use one over the other?
 
 Explain the concept of polymorphism in Java.
 
