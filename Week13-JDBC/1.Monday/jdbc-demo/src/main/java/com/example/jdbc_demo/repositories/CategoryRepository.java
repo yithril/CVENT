@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class CategoryRepository {
@@ -37,11 +38,7 @@ public class CategoryRepository {
 
             while(rs.next()){
                 //grab the data from the columns
-                int categoryId = rs.getInt("categoryid");
-                String categoryName = rs.getString("categoryname");
-                String description = rs.getString("description");
-                Category c = new Category(categoryId, categoryName, description);
-                categories.add(c);
+                categories.add(mapRowToCategory(rs));
             }
         }
         catch(SQLException ex){
@@ -49,5 +46,35 @@ public class CategoryRepository {
         }
 
         return categories;
+    }
+
+    public Optional<Category> getCategoryById(int id){
+        String query = "SELECT * FROM categories WHERE categoryid = ?";
+
+        try(Connection conn = dataSource.getConnection();
+           PreparedStatement ps = conn.prepareStatement(query)){
+
+            //replace the question mark with an actual value
+            ps.setInt(1, id);
+
+            try(ResultSet rs = ps.executeQuery()){
+                if(rs.next()){
+                     return Optional.of(mapRowToCategory(rs));
+                }
+            }
+        }
+        catch(SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return Optional.empty();
+    }
+
+    private Category mapRowToCategory(ResultSet rs) throws SQLException {
+        int categoryId = rs.getInt("categoryid");
+        String categoryName = rs.getString("categoryname");
+        String description = rs.getString("description");
+        Category c = new Category(categoryId, categoryName, description);
+        return c;
     }
 }
