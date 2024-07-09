@@ -9,13 +9,13 @@ public class UnsafeQueryManager {
             System.out.println("Enter EmployeeID:");
             String employeeId = scanner.nextLine();
 
-            String query = "SELECT FirstName, LastName, Title FROM Employees WHERE EmployeeID = " + employeeId;
+            String query = "SELECT FirstName, LastName, Notes FROM Employees WHERE EmployeeID = " + employeeId;
             try (Connection conn = DriverManager.getConnection(url, username, password);
                  Statement stmt = conn.createStatement();
                  ResultSet rs = stmt.executeQuery(query)) {
 
                 while (rs.next()) {
-                    System.out.println("Employee: " + rs.getString("FirstName") + " " + rs.getString("LastName") + " " + rs.getString("Title"));
+                    System.out.println("Employee: " + rs.getString("FirstName") + " " + rs.getString("LastName") + " " + rs.getString("Notes"));
                 }
             }
         } catch (SQLException e) {
