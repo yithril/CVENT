@@ -77,6 +77,7 @@ public class Main {
 
                 // Uncomment the line below and predict what will happen. Why?
                 // Calculator.add(10, 20); // Compile error, uncomment to see what happens
+                
             }
         }
         Calculator.main(null);
@@ -115,7 +116,7 @@ public class Main {
             static void printTotalEmployees() {
                 System.out.println("Total Employees: " + totalEmployees);
                 // Uncomment the line below and predict what will happen. Why?
-                // System.out.println("Employee name: " + name); // Compile error, uncomment to see what happens
+                //System.out.println("Employee name: " + name); // Compile error, uncomment to see what happens
             }
 
             void printEmployeeDetails() {

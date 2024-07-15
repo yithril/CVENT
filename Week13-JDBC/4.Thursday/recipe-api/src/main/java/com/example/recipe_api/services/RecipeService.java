@@ -6,8 +6,11 @@ import com.example.recipe_api.models.Recipe;
 import com.example.recipe_api.models.dto.CreateRecipeDTO;
 import com.example.recipe_api.models.dto.RecipeDTO;
 import com.example.recipe_api.models.dto.UpdateRecipeDTO;
+import com.example.recipe_api.models.queryparams.RecipeSearchParams;
+import com.example.recipe_api.models.specifications.RecipeSpecification;
 import com.example.recipe_api.repositories.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -66,5 +69,22 @@ public class RecipeService {
         Recipe updatedRecipe = recipeRepository.save(recipe);
 
         return recipeMapper.toRecipeDTO(updatedRecipe);
+    }
+
+    public List<RecipeDTO> getRecipesByName(String name){
+        List<Recipe> recipes = recipeRepository.findByNameContainingIgnoreCase(name);
+
+        return recipes.stream().map(recipeMapper::toRecipeDTO).toList();
+    }
+
+    public List<RecipeDTO> filterRecipes(RecipeSearchParams searchParams){
+        //Build your specification
+        Specification<Recipe> spec = Specification.where(RecipeSpecification.instructionsContains(searchParams.getInstructions()))
+                                                   .and(RecipeSpecification.nameContains(searchParams.getName()))
+                                                   .and(RecipeSpecification.cookingTimeBetween(searchParams.getMinCookingTime(), searchParams.getMaxCookingTime()))
+                                                   .and(RecipeSpecification.isVegan(searchParams.getVegan()));
+        List<Recipe> filteredRecipes = recipeRepository.findAll(spec);
+
+        return filteredRecipes.stream().map(recipeMapper::toRecipeDTO).toList();
     }
 }

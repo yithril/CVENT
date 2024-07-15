@@ -4,6 +4,7 @@ import com.example.recipe_api.models.Recipe;
 import com.example.recipe_api.models.dto.CreateRecipeDTO;
 import com.example.recipe_api.models.dto.RecipeDTO;
 import com.example.recipe_api.models.dto.UpdateRecipeDTO;
+import com.example.recipe_api.models.queryparams.RecipeSearchParams;
 import com.example.recipe_api.services.RecipeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +54,20 @@ public class RecipeController {
         var recipe = recipeService.updateRecipe(dto, id);
 
         return new ResponseEntity<>(recipe, HttpStatus.OK);
+    }
+
+    // api/Recipe/search?name=spaghetti
+//    @GetMapping("/search")
+//    public ResponseEntity<List<RecipeDTO>> searchRecipes(@RequestParam String name,
+//                                                         @RequestParam String instructions){
+//        var recipes = recipeService.getRecipesByName(name);
+//
+//        return new ResponseEntity<>(recipes, HttpStatus.OK);
+//    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<RecipeDTO>> searchRecipes(@ModelAttribute RecipeSearchParams searchParams){
+        var recipes = recipeService.filterRecipes(searchParams);
+        return new ResponseEntity<>(recipes, HttpStatus.OK);
     }
 }
