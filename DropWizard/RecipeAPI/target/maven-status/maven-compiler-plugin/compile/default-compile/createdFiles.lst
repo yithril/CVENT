@@ -1,0 +1,8 @@
+com\example\RecipeAPIConfiguration.class
+com\example\resources\RecipeResource.class
+com\example\RecipeAPIApplication.class
+com\example\config\DatabaseConfig.class
+com\example\db\RecipeDAO.class
+com\example\mapper\RecipeMapper.class
+com\example\health\DatabaseHealthCheck.class
+com\example\core\Recipe.class

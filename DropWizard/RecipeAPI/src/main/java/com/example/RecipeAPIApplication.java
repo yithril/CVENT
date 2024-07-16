@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.config.DatabaseConfig;
+import com.example.health.DatabaseHealthCheck;
 import com.example.resources.RecipeResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -27,10 +28,13 @@ public class RecipeAPIApplication extends Application<RecipeAPIConfiguration> {
     public void run(final RecipeAPIConfiguration configuration,
                     final Environment environment) {
         //setup database
-        SqlSessionFactory sqlSessionFactory = DatabaseConfig.setupDatabase(configuration);
+        SqlSessionFactory sqlSessionFactory = DatabaseConfig.build(configuration);
 
         final RecipeResource recipeResource = new RecipeResource(sqlSessionFactory);
         environment.jersey().register(recipeResource);
+
+        final DatabaseHealthCheck healthCheck = new DatabaseHealthCheck(sqlSessionFactory);
+        environment.healthChecks().register("database", healthCheck);
     }
 
 }

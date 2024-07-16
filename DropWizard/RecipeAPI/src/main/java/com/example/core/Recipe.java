@@ -1,19 +1,28 @@
 package com.example.core;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 public class Recipe {
     private Long id;
-
-    @NotEmpty
+    @NotEmpty(message = "Name cannot be empty")
     private String name;
 
-    @NotEmpty
+    @NotEmpty(message = "Description cannot be empty")
     private String description;
+
+    @Min(value = 1, message = "Cooking time must be at least 1 minute")
     private int cookingTimeInMinutes;
-    private boolean isVegan;
-    private boolean isNutFree;
-    private boolean isGlutenFree;
+
+    @NotNull(message = "Vegan status cannot be null")
+    private Boolean isVegan;
+
+    @NotNull(message = "Nut-free status cannot be null")
+    private Boolean isNutFree;
+
+    @NotNull(message = "Gluten-free status cannot be null")
+    private Boolean isGlutenFree;
 
     public Recipe(){
 

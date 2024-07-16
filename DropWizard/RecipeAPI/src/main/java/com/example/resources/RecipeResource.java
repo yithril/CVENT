@@ -5,6 +5,7 @@ import com.example.core.Recipe;
 import com.example.db.RecipeDAO;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -32,7 +33,7 @@ public class RecipeResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response createRecipe(Recipe recipe) {
+    public Response createRecipe(@Valid Recipe recipe) {
         Recipe createdRecipe = recipeDAO.insertRecipe(recipe);
         return Response.status(Response.Status.CREATED).entity(createdRecipe).build();
     }
@@ -40,7 +41,7 @@ public class RecipeResource {
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateRecipe(@PathParam("id") Long id, Recipe recipe) {
+    public Response updateRecipe(@PathParam("id") Long id, @Valid Recipe recipe) {
         recipe.setId(id);
         Recipe updatedRecipe = recipeDAO.updateRecipe(recipe);
         return Response.ok(updatedRecipe).build();
