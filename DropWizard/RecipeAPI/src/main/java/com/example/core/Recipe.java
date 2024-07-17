@@ -10,32 +10,32 @@ public class Recipe {
     private String name;
 
     @NotEmpty(message = "Description cannot be empty")
-    private String description;
+    private String instructions;
 
     @Min(value = 1, message = "Cooking time must be at least 1 minute")
-    private int cookingTimeInMinutes;
+    private int cooking_time_in_minutes;
 
     @NotNull(message = "Vegan status cannot be null")
-    private Boolean isVegan;
+    private Boolean is_vegan;
 
     @NotNull(message = "Nut-free status cannot be null")
-    private Boolean isNutFree;
+    private Boolean is_nut_free;
 
     @NotNull(message = "Gluten-free status cannot be null")
-    private Boolean isGlutenFree;
+    private Boolean is_gluten_free;
 
     public Recipe(){
 
     }
 
-    public Recipe(Long id, String name, String description, int cookingTimeInMinutes, boolean isVegan, boolean isNutFree, boolean isGlutenFree) {
+    public Recipe(Long id, String name, String instructions, int cooking_time_in_minutes, Boolean is_vegan, Boolean is_nut_free, Boolean is_gluten_free) {
         this.id = id;
         this.name = name;
-        this.description = description;
-        this.cookingTimeInMinutes = cookingTimeInMinutes;
-        this.isVegan = isVegan;
-        this.isNutFree = isNutFree;
-        this.isGlutenFree = isGlutenFree;
+        this.instructions = instructions;
+        this.cooking_time_in_minutes = cooking_time_in_minutes;
+        this.is_vegan = is_vegan;
+        this.is_nut_free = is_nut_free;
+        this.is_gluten_free = is_gluten_free;
     }
 
     public Long getId() {
@@ -54,43 +54,43 @@ public class Recipe {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getInstructions() {
+        return instructions;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 
-    public int getCookingTimeInMinutes() {
-        return cookingTimeInMinutes;
+    public int getCooking_time_in_minutes() {
+        return cooking_time_in_minutes;
     }
 
-    public void setCookingTimeInMinutes(int cookingTimeInMinutes) {
-        this.cookingTimeInMinutes = cookingTimeInMinutes;
+    public void setCooking_time_in_minutes(int cooking_time_in_minutes) {
+        this.cooking_time_in_minutes = cooking_time_in_minutes;
     }
 
-    public boolean isVegan() {
-        return isVegan;
+    public Boolean getIs_vegan() {
+        return is_vegan;
     }
 
-    public void setVegan(boolean vegan) {
-        isVegan = vegan;
+    public void setIs_vegan(Boolean is_vegan) {
+        this.is_vegan = is_vegan;
     }
 
-    public boolean isNutFree() {
-        return isNutFree;
+    public Boolean getIs_nut_free() {
+        return is_nut_free;
     }
 
-    public void setNutFree(boolean nutFree) {
-        isNutFree = nutFree;
+    public void setIs_nut_free(Boolean is_nut_free) {
+        this.is_nut_free = is_nut_free;
     }
 
-    public boolean isGlutenFree() {
-        return isGlutenFree;
+    public Boolean getIs_gluten_free() {
+        return is_gluten_free;
     }
 
-    public void setGlutenFree(boolean glutenFree) {
-        isGlutenFree = glutenFree;
+    public void setIs_gluten_free(Boolean is_gluten_free) {
+        this.is_gluten_free = is_gluten_free;
     }
 }

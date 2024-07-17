@@ -10,6 +10,6 @@ server:
     - type: http
       port: 8081
 
-databaseUrl: jdbc:postgresql://localhost:5432/recipeDb
-databaseUser:
-databasePassword:
+databaseUrl: jdbc:postgresql://localhost:5432/recipeDB
+databaseUser: postgres
+databasePassword: Leeames123!

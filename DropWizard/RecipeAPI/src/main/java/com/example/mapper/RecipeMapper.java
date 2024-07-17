@@ -6,26 +6,26 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 public interface RecipeMapper {
-    @Select("SELECT * FROM recipes WHERE id = #{id}")
+    @Select("SELECT * FROM recipe WHERE id = #{id}")
     Recipe getRecipeById(Long id);
 
-    @Select("SELECT * FROM recipes")
+    @Select("SELECT * FROM recipe")
     List<Recipe> getAllRecipes();
 
-    @Insert("INSERT INTO recipes (name, description) VALUES (#{name}, #{description})")
+    @Insert("INSERT INTO recipe (name, instructions) VALUES (#{name}, #{instructions})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void insertRecipe(Recipe recipe);
 
-    @Insert("INSERT INTO recipes (name, description) VALUES (#{name}, #{description})")
+    @Insert("INSERT INTO recipe (name, instructions) VALUES (#{name}, #{instructions})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void updateRecipe(Recipe recipe);
 
-    @Delete("DELETE FROM recipes WHERE id = ${id}")
+    @Delete("DELETE FROM recipe WHERE id = ${id}")
     void deleteRecipe(Long id);
 
     @Select({
             "<script>",
-            "SELECT * FROM recipes",
+            "SELECT * FROM recipe",
             "WHERE 1=1",
             "<if test='name != null'>",
             "AND name LIKE CONCAT('%', #{name}, '%')",

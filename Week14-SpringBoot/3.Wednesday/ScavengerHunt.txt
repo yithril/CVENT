@@ -1,0 +1,34 @@
+Questions
+Team A Questions
+
+    What is Reactive Programming?
+        Define Reactive Programming and explain its core principles.
+
+    What is Project Reactor and how does it integrate with Java applications?
+        Provide an overview of Project Reactor.
+
+    What is Mono in Project Reactor?
+        Explain what Mono is and provide an example scenario where Mono would be useful.
+
+    What are some common operators available in Mono?
+        List and briefly describe at least three operators in Mono.
+
+    How does Mono compare to CompletableFuture?
+        Discuss the similarities and differences between Mono and CompletableFuture.
+
+Team B Questions
+
+    What is Flux in Project Reactor?
+        Explain what Flux is and provide an example scenario where Flux would be useful.
+
+    How does Flux handle backpressure?
+        Define backpressure and explain how Flux manages it.
+
+    What are some common operators available in Flux?
+        List and briefly describe at least three operators in Flux.
+
+    Provide a real-world example of an application that uses Flux.
+        Research and present a case study or example.
+
+    What are the advantages of using Flux over CompletableFuture?
+        Discuss the benefits of using Flux in Reactive Programming.
