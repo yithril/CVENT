@@ -31,7 +31,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
     private final List<String> excludedUrls = Arrays.asList(
             "/api/auth/register",
-            "/api/auth/authenticate",
+            "/authenticate",
             "/auth/welcome",
             "/auth/addNewUser",
             "/auth/generateToken",

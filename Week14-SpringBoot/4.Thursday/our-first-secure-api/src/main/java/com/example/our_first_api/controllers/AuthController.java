@@ -5,6 +5,7 @@ import com.example.our_first_api.models.response.AuthenticationResponse;
 import com.example.our_first_api.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -26,6 +27,7 @@ public class AuthController {
     private UserDetailsService userDetailsService;
 
     @PostMapping("/authenticate")
+    @PreAuthorize("permitAll()")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
         try {
             authenticationManager.authenticate(
