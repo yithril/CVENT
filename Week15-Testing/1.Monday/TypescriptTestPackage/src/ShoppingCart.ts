@@ -1,5 +1,7 @@
 // src/ShoppingCart.ts
 
+import { PaymentService } from "./PaymentService";
+
 export interface Item {
     id: number;
     name: string;
@@ -9,7 +11,12 @@ export interface Item {
   
   export class ShoppingCart {
     private items: Item[] = [];
-  
+    private paymentService: PaymentService;
+
+    constructor(paymentService: PaymentService) {
+      this.paymentService = paymentService;
+    }
+    
     addItem(item: Item): void {
       const existingItem = this.items.find(i => i.id === item.id);
       if (existingItem) {
@@ -47,6 +54,11 @@ export interface Item {
   
     getItems(): Item[] {
       return this.items;
+    }
+
+    checkout(): boolean {
+      const total = this.getTotal();
+      return this.paymentService.processPayment(total);
     }
   }
   
