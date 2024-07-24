@@ -28,7 +28,7 @@ type ContactInfo = Pick<UserProfile, 'email' | 'address'>;
 
 const contact:ContactInfo = {
     email: 'test@test.com',
-    address: '123 Main St.'
+    address: '123 Main St.',
 }
 
 type readOnlyProfile = Readonly<UserProfile>;

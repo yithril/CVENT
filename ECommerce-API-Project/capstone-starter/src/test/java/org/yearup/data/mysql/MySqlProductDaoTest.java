@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MySqlProductDaoTest extends BaseDaoTestClass
 {
@@ -38,6 +39,7 @@ class MySqlProductDaoTest extends BaseDaoTestClass
             setImageUrl("smartphone.jpg");
         }};
 
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> { dao.create(expected); });
         // act
         var actual = dao.getById(productId);
 

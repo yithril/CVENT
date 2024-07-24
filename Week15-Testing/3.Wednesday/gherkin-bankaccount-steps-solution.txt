@@ -1,0 +1,28 @@
+Feature: Managing a bank account
+
+  Background: An empty bank account
+    Given an empty bank account
+
+  Scenario: Depositing money
+    When I deposit 100
+    Then the balance should be 100
+
+  Scenario: Withdrawing money
+    Given an account with a balance of 50
+    When I withdraw 30
+    Then the balance should be 20
+
+  Scenario: Attempting to withdraw more than the balance
+    Given an account with a balance of 50
+    When I withdraw 60
+    Then the balance should be 50
+
+  Scenario Outline: Multiple transactions
+    When I deposit <deposit_amount>
+    And I withdraw <withdraw_amount>
+    Then the balance should be <expected_balance>
+
+    Examples:
+      | deposit_amount | withdraw_amount | expected_balance |
+      | 100            | 50              | 50               |
+      | 200            | 100             | 100              |
