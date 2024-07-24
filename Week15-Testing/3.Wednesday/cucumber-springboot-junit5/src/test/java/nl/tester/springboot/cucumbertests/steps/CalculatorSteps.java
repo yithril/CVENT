@@ -16,13 +16,13 @@ public class CalculatorSteps {
 
     private Calculator calc;
 
-    @Given("^a calculator I just turned on$")
+    @Given("a calculator I just turned on")
     public void setup() {
         calc = new Calculator();
-        log.info( "Starting the Cucumber tests");
+        log.info("Starting the Cucumber tests");
     }
 
-    @When("^I add (\\d+) and (\\d+)$")
+    @When("I add {int} and {int}")
     public void add(int arg1, int arg2) {
         log.debug("Adding {} and {}", arg1, arg2);
         calc.push(arg1);
@@ -30,19 +30,19 @@ public class CalculatorSteps {
         calc.push("+");
     }
 
-    @When("^I substract (\\d+) to (\\d+)$")
-    public void substract(int arg1, int arg2) {
-        log.debug("Substracting {} and {}", arg1, arg2);
-        calc.push(arg1);
+    @When("I subtract {int} from {int}")
+    public void subtract(int arg1, int arg2) {
+        log.debug("Subtracting {} from {}", arg1, arg2);
         calc.push(arg2);
+        calc.push(arg1);
         calc.push("-");
     }
 
-    @Then("^the result is (\\d+)$")
+    @Then("the result is {double}")
     public void the_result_is(double expected) {
         Number value = calc.value();
         log.debug("Result: {} (expected {})", value, expected);
-        assertEquals(expected, value);
+        assertEquals(expected, value.doubleValue(), 0.0001);
     }
 
 }
