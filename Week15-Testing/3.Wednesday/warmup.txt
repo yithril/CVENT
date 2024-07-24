@@ -1,0 +1,33 @@
+Please research one of the following topics and prepare to share your findings with the class:
+
+What is BDD?
+
+    Research and describe the core principles of Behavior-Driven Development. How does BDD differ from traditional Test-Driven Development (TDD)?
+
+What are the main benefits of BDD?
+
+    Identify and explain the key advantages of adopting BDD in software development. Consider aspects like communication, documentation, and test coverage.
+
+How does BDD improve communication between stakeholders?
+
+    Investigate how BDD facilitates better communication between developers, testers, and non-technical stakeholders. How does this impact the development process?
+
+What are Gherkin syntax and its role in BDD?
+
+    Look into Gherkin syntax used in BDD for writing feature files. What are the common keywords (Given, When, Then) and their purposes?
+
+How do you write effective feature files in BDD?
+
+    Explore best practices for writing clear and effective feature files. What are some common pitfalls to avoid?
+
+What tools and frameworks support BDD in Java?
+
+    Research popular BDD tools and frameworks for Java, such as Cucumber, JBehave, or others. What are their key features and how do they integrate with the Java ecosystem?
+
+How does BDD integrate with Continuous Integration (CI) pipelines?
+
+    Examine how BDD tests can be integrated into CI pipelines. What are the benefits of running BDD tests as part of automated build and deployment processes?
+
+What are some common challenges when adopting BDD?
+
+    Identify and discuss potential challenges or limitations of implementing BDD. How can these challenges be addressed or mitigated?
