@@ -3,13 +3,7 @@ package com.example.recipe_api.models.dto;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class UpdateRecipeDTO {
     @NotBlank(message = "Name is mandatory.")
     @Size(max = 100, message = "Name can be at most 100 characters")
@@ -23,4 +17,56 @@ public class UpdateRecipeDTO {
     private boolean isVegan;
     private boolean isNutFree;
     private boolean isGlutenFree;
+
+    public UpdateRecipeDTO(){
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
+    }
+
+    public int getCookingTimeInMinutes() {
+        return cookingTimeInMinutes;
+    }
+
+    public void setCookingTimeInMinutes(int cookingTimeInMinutes) {
+        this.cookingTimeInMinutes = cookingTimeInMinutes;
+    }
+
+    public boolean isVegan() {
+        return isVegan;
+    }
+
+    public void setVegan(boolean vegan) {
+        isVegan = vegan;
+    }
+
+    public boolean isNutFree() {
+        return isNutFree;
+    }
+
+    public void setNutFree(boolean nutFree) {
+        isNutFree = nutFree;
+    }
+
+    public boolean isGlutenFree() {
+        return isGlutenFree;
+    }
+
+    public void setGlutenFree(boolean glutenFree) {
+        isGlutenFree = glutenFree;
+    }
 }

@@ -3,18 +3,12 @@ package com.example.recipe_api.models;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 @Entity
 public class Recipe {
@@ -39,4 +33,102 @@ public class Recipe {
 
     @LastModifiedDate
     private LocalDateTime lastModifiedDate;
+
+    public Recipe(){
+
+    }
+
+    public Recipe(Long id, String name, String instructions, int cookingTimeInMinutes, boolean isVegan, boolean isNutFree, boolean isGlutenFree) {
+        this.id = id;
+        this.name = name;
+        this.instructions = instructions;
+        this.cookingTimeInMinutes = cookingTimeInMinutes;
+        this.isVegan = isVegan;
+        this.isNutFree = isNutFree;
+        this.isGlutenFree = isGlutenFree;
+    }
+
+    public Recipe(Long id, String name, String instructions, int cookingTimeInMinutes, boolean isVegan, boolean isNutFree, boolean isGlutenFree, LocalDateTime createdDate, LocalDateTime lastModifiedDate) {
+        this.id = id;
+        this.name = name;
+        this.instructions = instructions;
+        this.cookingTimeInMinutes = cookingTimeInMinutes;
+        this.isVegan = isVegan;
+        this.isNutFree = isNutFree;
+        this.isGlutenFree = isGlutenFree;
+        this.createdDate = createdDate;
+        this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
+    }
+
+    public int getCookingTimeInMinutes() {
+        return cookingTimeInMinutes;
+    }
+
+    public void setCookingTimeInMinutes(int cookingTimeInMinutes) {
+        this.cookingTimeInMinutes = cookingTimeInMinutes;
+    }
+
+    public boolean isVegan() {
+        return isVegan;
+    }
+
+    public void setVegan(boolean vegan) {
+        isVegan = vegan;
+    }
+
+    public boolean isNutFree() {
+        return isNutFree;
+    }
+
+    public void setNutFree(boolean nutFree) {
+        isNutFree = nutFree;
+    }
+
+    public boolean isGlutenFree() {
+        return isGlutenFree;
+    }
+
+    public void setGlutenFree(boolean glutenFree) {
+        isGlutenFree = glutenFree;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public LocalDateTime getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public void setLastModifiedDate(LocalDateTime lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+    }
 }
