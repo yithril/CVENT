@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TodoItem from './TodoItem';
 import { addTodo, getTodos, removeTodo, toggleComplete } from '../services/TodoService';
 import TodoForm from './TodoForm';
+import { thirdPartyApiInstance } from '../helpers/apiInstance';
 
 
 const TodoList: React.FC = () => {
@@ -9,6 +10,7 @@ const TodoList: React.FC = () => {
 
   useEffect(() => {
     setTodos(getTodos());
+
   }, []);
 
   const handleAddTodo = (text: string) => {
