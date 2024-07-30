@@ -1,0 +1,26 @@
+AWS Services List
+
+    Amazon EC2
+    AWS Lambda
+    AWS Fargate
+    AWS Elastic Beanstalk
+    AWS Elastic Container Service (ECS)
+    Amazon S3 Buckets
+    Amazon RDS (PostgreSQL)
+    Amazon DynamoDB
+    Amazon S3 Glacier
+    Amazon Aurora
+    Amazon VPC
+    AWS CloudFront
+    Amazon Route 53
+    Amazon API Gateway
+    AWS CloudFormation
+    AWS IAM
+    AWS Secrets Manager
+    AWS CloudTrail
+    AWS Shield
+    AWS CodeBuild
+    AWS CloudWatch
+    AWS Step Functions
+    AWS Amplify
+    AWS CodePipeline
