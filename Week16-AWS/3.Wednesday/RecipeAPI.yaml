@@ -1,0 +1,127 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: RecipeAPI
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /api/Recipe:
+    get:
+      summary: Your GET endpoint
+      operationId: get-api-Recipe
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipe'
+      servers:
+        - url: 'http://localhost:3000'
+    post:
+      summary: Your POST endpoint
+      operationId: post-api-Recipe
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRecipeDTO'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipe'
+      servers:
+        - url: 'http://localhost:3000'
+  '/api/Recipe/{id}':
+    get:
+      summary: Your GET endpoint
+      operationId: get-api-Recipe-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipe'
+      servers:
+        - url: 'http://localhost:3000'
+    delete:
+      summary: Your DELETE endpoint
+      operationId: delete-api-Recipe-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+      servers:
+        - url: 'http://localhost:3000'
+    put:
+      summary: Your PUT endpoint
+      operationId: put-api-Recipe-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRecipeDTO'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipe'
+      servers:
+        - url: 'http://localhost:3000'
+components:
+  schemas:
+    Recipe:
+      type: object
+      title: Recipe
+      properties:
+        id:
+          type: integer
+        instructions:
+          type: string
+        cookingTimeInMinutes:
+          type: string
+        isVegan:
+          type: boolean
+    CreateRecipeDTO:
+      type: object
+      title: Recipe
+      properties:
+        instructions:
+          type: string
+        cookingTimeInMinutes:
+          type: string
+        isVegan:
+          type: boolean
+    UpdateRecipeDTO:
+      type: object
+      title: Recipe
+      properties:
+        instructions:
+          type: string
+        cookingTimeInMinutes:
+          type: string
+        isVegan:
+          type: boolean
