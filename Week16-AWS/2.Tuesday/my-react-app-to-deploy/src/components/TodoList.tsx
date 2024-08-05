@@ -2,15 +2,25 @@ import React, { useState, useEffect } from 'react';
 import TodoItem from './TodoItem';
 import { addTodo, getTodos, removeTodo, toggleComplete } from '../services/TodoService';
 import TodoForm from './TodoForm';
-import { thirdPartyApiInstance } from '../helpers/apiInstance';
+import { myOwnApiInstance, thirdPartyApiInstance } from '../helpers/apiInstance';
 
 
 const TodoList: React.FC = () => {
   const [todos, setTodos] = useState(getTodos());
 
   useEffect(() => {
-    setTodos(getTodos());
+    // Fetch todos from the API
+    const fetchTodos = async () => {
+      try {
+        const response = await myOwnApiInstance.get('/api/recipe');
+        setTodos(response.data);
 
+      } catch (error) {
+        console.error('Error fetching todos', error);
+      }
+    };
+
+    fetchTodos();
   }, []);
 
   const handleAddTodo = (text: string) => {
