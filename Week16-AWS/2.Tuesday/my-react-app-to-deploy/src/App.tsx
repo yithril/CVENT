@@ -1,17 +1,27 @@
-import { useState } from 'react'
 import './App.css'
-import TodoList from './components/TodoList'
 import './styles.css';
+import Navbar from './components/Navbar';
+import Main from './components/Main';
+import { Authenticator } from '@aws-amplify/ui-react';
+import AuthProvider from './components/AuthProvider';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
-      <h1>Todo List</h1>
-      <TodoList />
-    </div>
-  )
+    <AuthProvider>
+      <div className="App">
+        <Navbar />
+        <main style={styles.mainContent}>
+          <Main />
+        </main>
+      </div>
+    </AuthProvider>
+  );
 }
 
-export default App
+const styles = {
+  mainContent: {
+    padding: '20px',
+  },
+};
+
+export default App;
