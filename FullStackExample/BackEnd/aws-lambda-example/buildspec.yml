@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Running pre-build steps..."
+      - mvn clean install
+  build:
+    commands:
+      - echo "Building the Java Lambda function..."
+      - mvn package
+  post_build:
+    commands:
+      - echo "Build completed successfully."
+      - echo "Copying the package..."
+      - mkdir -p target/deployment
+      - cp target/aws-lambda-example-1.0-SNAPSHOT-lambda-package.zip target/deployment/
+
+artifacts:
+  files:
+    - target/deployment/aws-lambda-example-1.0-SNAPSHOT-lambda-package.zip
